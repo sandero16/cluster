@@ -34,6 +34,6 @@ for N in range(1000,1001,1000):
 
     if myrank == 0 :
         #print (" pi i s approximately %.16f , error %.16f " % ( pi , error ) )
-        #print "newdata",newdata
+        print "newdata",newdata
         end=time.time()
         print "time ",(end-start)
