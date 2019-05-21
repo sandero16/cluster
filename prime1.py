@@ -17,7 +17,7 @@ nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
 if myrank == 0 :
     samples=numpy.arange(1,100)
-    samples=numpy.resize(3,33)
+    samples=numpy.resize(samples(3,33))
     print "matrix", samples
 else :
     samples = None
