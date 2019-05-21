@@ -11,26 +11,27 @@ def computeprime (num) :
     
 start=time.time()
 end=start
-N=1000
+N=2000
 comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
-if myrank == 0 :
-    samples=numpy.arange(1,N)
-    samples=numpy.resize(samples,(3,(N/3)))
-else :
-    samples = None
-samples = comm.scatter(samples , root=0)
+for N in range(1000,10000,1000):
+    if myrank == 0 :
+        samples=numpy.arange(1,N)
+        samples=numpy.resize(samples,(3,(N/3)))
+    else :
+        samples = None
+    samples = comm.scatter(samples , root=0)
 
 
-sendPrime=[]
-for number in samples:
-    sendPrime.append(computeprime(number))
+    sendPrime=[]
+    for number in samples:
+        sendPrime.append(computeprime(number))
 
-newdata=comm.gather(sendPrime , root=0)
+    newdata=comm.gather(sendPrime , root=0)
 
-if myrank == 0 :
-    #print (" pi i s approximately %.16f , error %.16f " % ( pi , error ) )
-    print "newdata",newdata
-    end=time.time()
-print "time ",(end-start)
+    if myrank == 0 :
+        #print (" pi i s approximately %.16f , error %.16f " % ( pi , error ) )
+        #print "newdata",newdata
+        end=time.time()
+        print "time ",(end-start)
