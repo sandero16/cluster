@@ -9,7 +9,7 @@ def computepi ( samples ) :
             pi = 4*float (count)/ len ( samples )
             return pi
 
-comm = MPI.COMMWORLD
+comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
 if myrank == 0 :
