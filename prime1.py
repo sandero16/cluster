@@ -16,9 +16,7 @@ comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
 if myrank == 0 :
-    samples=[]
-    for i in range(100):
-        samples.append(i)
+    samples=numpy.arange(1,100).resize(3,33)
 else :
     samples = None
 samples = comm.scatter(samples , root=0)
