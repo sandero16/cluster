@@ -1,7 +1,7 @@
 from mpi4py import MPI
 import numpy
 
-def computepi ( samples ) :
+def computepi (samples) :
     count=0
     for x , y in samples :
         print("working")
@@ -19,8 +19,10 @@ if myrank == 0 :
 else :
     samples = None
     samples = comm.scatter( samples , root=0)
-    mypi = computepi(samples)/nprocs
-    pi = comm.reduce(mypi , root=0)
-    if myrank == 0 :
-        error = abs (pi-numpy.pi )
-        print (" pi i s approximately %.16 f , e r r o r i s %.16 f " % ( pi , error ) )
+    
+mypi = computepi(samples)/nprocs
+pi = comm.reduce(mypi , root=0)
+
+if myrank == 0 :
+    error = abs (pi-numpy.pi )
+    print (" pi i s approximately %.16 f , e r r o r i s %.16 f " % ( pi , error ) )
