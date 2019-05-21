@@ -26,7 +26,7 @@ pi = comm.reduce(mypi , root=0)
 
 if myrank == 0 :
     error = abs (pi-numpy.pi )
-    //print (" pi i s approximately %.16f , error %.16f " % ( pi , error ) )
+    #print (" pi i s approximately %.16f , error %.16f " % ( pi , error ) )
     print "pi is approcximately", pi, "met error", error
 end=time.time()
 print "time ",(end-start)
