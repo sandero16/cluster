@@ -4,13 +4,11 @@ import time
 
 def computeprime (num) :
     if num > 1:
-       for i in range(2,num):
-           if (num % i) == 0:
-               return 0
+        for i in range(2,num):
+            if (num % i) == 0:
+                return 0
             else:
-               return num
-        
-        
+                return num
         
 start=time.time()
 end=start
