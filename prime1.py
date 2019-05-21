@@ -17,9 +17,12 @@ nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
 if myrank == 0 :
     samples=numpy.arange(1,100).resize(3,33)
+    print "matrix", samples
 else :
     samples = None
 samples = comm.scatter(samples , root=0)
+
+
 sendPrime=[]
 for number in samples:
     sendPrime.append(computeprime(number))
