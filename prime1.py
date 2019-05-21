@@ -9,13 +9,12 @@ def computeprime (num) :
                 return 0
         return num
     
-start=time.time()
-end=start
-N=2000
+
 comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
 for N in range(1000,10000,1000):
+    start=time.time()
     if myrank == 0 :
         samples=numpy.arange(1,N)
         samples=numpy.resize(samples,(3,(N/3)))
