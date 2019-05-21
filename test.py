@@ -11,7 +11,7 @@ def computepi (samples) :
             pi = 4*float (count)/ len ( samples )
             return pi
 start=time.time()
-end=time.time()
+end=start
 comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
