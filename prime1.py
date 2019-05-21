@@ -7,8 +7,8 @@ def computeprime (num) :
        for i in range(2,num):
            if (num % i) == 0:
                return 0
-        else:
-           return num
+            else:
+               return num
         
         
         
