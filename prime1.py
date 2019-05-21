@@ -17,7 +17,6 @@ myrank = comm. Get_rank ( )
 if myrank == 0 :
     samples=numpy.arange(1,100)
     samples=numpy.resize(samples,(3,33))
-    print "matrix", samples
 else :
     samples = None
 samples = comm.scatter(samples , root=0)
