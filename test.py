@@ -4,6 +4,7 @@ import numpy
 def computepi ( samples ) :
     count=0
     for x , y in samples :
+        print("working")
         if x**2 + y**2 <= 1 :
             count += 1
             pi = 4*float (count)/ len ( samples )
@@ -13,7 +14,7 @@ comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
 if myrank == 0 :
-    N = 100000 // nprocs
+    N = 10000 // nprocs
     samples = numpy.random.random((nprocs,N,2))
 else :
     samples = None
