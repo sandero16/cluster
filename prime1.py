@@ -13,7 +13,7 @@ def computeprime (num) :
 comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
-for N in range(1000,10000,1000):
+for N in range(100,5000,100):
     start=time.time()
     if myrank == 0 :
         samples=numpy.arange(1,N)
