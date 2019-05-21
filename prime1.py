@@ -16,10 +16,10 @@ comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
 if myrank == 0 :
-    samples=np.empty(3)
-    filler=np.arange(0,3,1)
-    ind=np.arange(len(samples))
-    np.put(samples,ind,filler)
+    samples=numpy.empty(3)
+    filler=numpy.arange(0,3,1)
+    ind=numpy.arange(len(samples))
+    numpy.put(samples,ind,filler)
 else :
     samples = None
 samples = comm.scatter( samples , root=0)
