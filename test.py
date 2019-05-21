@@ -20,6 +20,6 @@ else :
     samples = comm.scatter( samples , root=0)
     mypi = computepi(samples)/nprocs
     pi = comm.reduce(mypi , root=0)
-if myrank == 0 :
-    error = abs ( pi - numpy.pi )
-    print (" pi i s approximately %.16 f , e r r o r i s %.16 f " % ( pi , error ) )
+    if myrank == 0 :
+        error = abs (pi-numpy.pi )
+        print (" pi i s approximately %.16 f , e r r o r i s %.16 f " % ( pi , error ) )
