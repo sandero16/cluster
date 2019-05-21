@@ -11,6 +11,7 @@ def computepi (samples) :
             pi = 4*float (count)/ len ( samples )
             return pi
 start=time.time()
+end=time.time()
 comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
@@ -28,5 +29,5 @@ if myrank == 0 :
     error = abs (pi-numpy.pi )
     #print (" pi i s approximately %.16f , error %.16f " % ( pi , error ) )
     print "pi is approcximately", pi, "met error", error
-end=time.time()
+    end=time.time()
 print "time ",(end-start)
