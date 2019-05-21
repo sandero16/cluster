@@ -13,7 +13,7 @@ def computeprime (num) :
 comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
-for N in range(100,5000,100):
+for N in range(1000,1001,1000):
     start=time.time()
     if myrank == 0 :
         samples=numpy.arange(1,N)
@@ -25,7 +25,10 @@ for N in range(100,5000,100):
 
     sendPrime=[]
     for number in samples:
-        sendPrime.append(computeprime(number))
+        #sendPrime.append(computeprime(number))
+        temp=computeprime(number)
+        if temp!=0:
+            sendPrime.append(temp)
 
     newdata=comm.gather(sendPrime , root=0)
 
