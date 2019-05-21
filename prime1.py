@@ -11,7 +11,7 @@ def computeprime (num) :
     
 start=time.time()
 end=start
-N=100
+N=1000
 comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
