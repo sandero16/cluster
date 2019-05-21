@@ -16,7 +16,7 @@ comm = MPI.COMM_WORLD
 nprocs = comm.Get_size()
 myrank = comm. Get_rank ( )
 if myrank == 0 :
-    samples=numpy.arange(1,100).resize(3,33)
+    samples=numpy.arange(1,100)
     print "matrix", samples
 else :
     samples = None
